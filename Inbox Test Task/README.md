@@ -86,6 +86,7 @@ Then run this command to write backup.sql onto djinni_sandbox db
 
 ```
 cat backup.sql | docker exec -i CONTAINER ID psql --user admin djinni_sandbox
+cat backup.sql | docker exec -i ab5347b5d8cf psql --user admin --password=123456 djinni_sandbox
 ```
 
 Good to go! 👍👍

@@ -1,0 +1,24 @@
+Energy Consumption Management System
+
+Objective: Develop a program that manages different types of energy sources, where each source type has unique calculations for energy output based on its characteristics.
+
+Sample Input:
+SolarPanel Area 20 Efficiency 15
+WindTurbine Height 50 WindSpeedAverage 6
+HydroPlant FlowRate 300 Drop 20
+
+Sample Output:
+SolarPanel AnnualEnergyOutput 4500
+WindTurbine AnnualEnergyOutput 54000
+HydroPlant AnnualEnergyOutput 108000
+
+Explanation of Calculations:
+ • Solar Panel: Output = Area × Efficiency × 15
+ • Wind Turbine: Output = Height × WindSpeedAverage × 150
+ • Hydro Plant: Output = FlowRate × Drop × 12
+
+Bonus Points For:
+ • Tests
+ • Code that is easy to extend to add more energy sources
+ - For example: “OffshoreWindTurbine Height 70 WindSpeedAverage 8 CorrosionFactor 0.2”
+ - Where: Output = Height × WindSpeedAverage × 160 × (1 - CorrosionFactor)
