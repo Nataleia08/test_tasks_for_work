@@ -48,3 +48,15 @@ class HydroPlant(EnergySource):
     
     def ResourceDepletionRate(self, *args) -> float:
         return round(args[0][0]/args[0][1], 2)
+    
+class OffshoreWindTurbine(EnergySource):
+    def __init__(self) -> None:
+        super().__init__("OffshoreWindTurbine")
+        self.par = 160
+        self.coef = 1200
+
+    def AnnualEnergyOutput(self, *args) -> float:
+        return self.par*super().AnnualEnergyOutput(*args)*(1-args[0][-1])/args[0][-1]
+    
+    def ResourceDepletionRate(self, *args) -> float:
+        return round(self.coef/super().AnnualEnergyOutput(*args), 2)

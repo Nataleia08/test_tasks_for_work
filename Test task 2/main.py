@@ -1,4 +1,4 @@
-from function import SolarPanel, WindTurbine, HydroPlant
+from function import SolarPanel, WindTurbine, HydroPlant, OffshoreWindTurbine
 
 def main():
     while True:  
@@ -13,14 +13,15 @@ def main():
                 case "SolarPanel": new_energy_source = SolarPanel()
                 case "WindTurbine": new_energy_source = WindTurbine()
                 case "HydroPlant": new_energy_source = HydroPlant()
+                case "OffshoreWindTurbine": new_energy_source = OffshoreWindTurbine()
             energy_output = new_energy_source.AnnualEnergyOutput(parameters)
             res_dep_rate = new_energy_source.ResourceDepletionRate(parameters)
             if energy_output == 1:
                 print("This is not energy source")
             else: 
                 print(f"{new_energy_source.type} AnnualEnergyOutput {energy_output} ResourceDepletionRate {res_dep_rate}")
-        except TypeError as e:
-            print(f"This command not right! {e}")
+        except (TypeError, IndexError, UnboundLocalError):
+            print(f"This command not right!")
 
         
 if __name__ == "__main__":

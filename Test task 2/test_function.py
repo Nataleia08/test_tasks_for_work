@@ -1,5 +1,5 @@
 import unittest
-from function import SolarPanel, WindTurbine, HydroPlant
+from function import SolarPanel, WindTurbine, HydroPlant, OffshoreWindTurbine
 
 class TestEnergySource(unittest.TestCase):
     def test_1(self):
@@ -17,6 +17,11 @@ class TestEnergySource(unittest.TestCase):
         result1 = energy_source3.AnnualEnergyOutput([300, 20])
         self.assertEqual(result1, 72000.0)
 
+    def test_8(self):
+        energy_source8 = OffshoreWindTurbine()
+        result1 = energy_source8.AnnualEnergyOutput([70, 8, 0.2])
+        self.assertEqual(result1, 71680.0)
+
 class TestResourceDepletionRate(unittest.TestCase):
     def test_4(self):
         energy_source_4 = SolarPanel()
@@ -32,6 +37,11 @@ class TestResourceDepletionRate(unittest.TestCase):
         energy_source_6 = HydroPlant()
         result6 = energy_source_6.ResourceDepletionRate([300, 20])
         self.assertEqual(result6, 15.00)
+
+    def test_7(self):
+        energy_source_7 = OffshoreWindTurbine()
+        result7 = energy_source_7.ResourceDepletionRate([70, 8, 0.2])
+        self.assertEqual(result7, 10.71)
 
 if __name__ == '__main__':
     unittest.main()
