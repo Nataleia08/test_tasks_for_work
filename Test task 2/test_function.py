@@ -17,7 +17,21 @@ class TestEnergySource(unittest.TestCase):
         result1 = energy_source3.AnnualEnergyOutput([300, 20])
         self.assertEqual(result1, 72000.0)
 
+class TestResourceDepletionRate(unittest.TestCase):
+    def test_4(self):
+        energy_source_4 = SolarPanel()
+        result4 = energy_source_4.ResourceDepletionRate([20, 15])
+        self.assertEqual(result4, 6.67)
 
+    def test_5(self):
+        energy_source_5 = WindTurbine()
+        result5 = energy_source_5.ResourceDepletionRate([50, 6])
+        self.assertEqual(result5, 3.33)
+
+    def test_6(self):
+        energy_source_6 = HydroPlant()
+        result6 = energy_source_6.ResourceDepletionRate([300, 20])
+        self.assertEqual(result6, 15.00)
 
 if __name__ == '__main__':
     unittest.main()

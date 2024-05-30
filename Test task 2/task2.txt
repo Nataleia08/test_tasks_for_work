@@ -1,0 +1,26 @@
+Hi Nataliia, the code looks good. I want to ask you to add one more calculation to your code: ResourceDepletionRate.
+
+The input stays the same, here is a revised output:
+SolarPanel AnnualEnergyOutput 4500 ResourceDepletionRate 6.67
+WindTurbine AnnualEnergyOutput 54000 ResourceDepletionRate 3.33
+HydroPlant AnnualEnergyOutput 108000 ResourceDepletionRate 15
+
+Explanation of Calculations:
+ • Solar Panel:
+ ○ AnnualEnergyOutput = Area × Efficiency × 15
+ ○ ResourceDepletionRate = 100 / Efficiency
+ 
+• Wind Turbine:
+ ○ AnnualEnergyOutput = Height × WindSpeedAverage × 150
+ ○ ResourceDepletionRate = 1000 / (Height * WindSpeedAverage)
+
+ • Hydro Plant:
+ ○ AnnualEnergyOutput = FlowRate × Drop × 12
+ ○ ResourceDepletionRate = FlowRate / Drop
+
+Bonus Points For:
+ • Tests
+ • Code that is easy to extend to add more energy sources
+ ○ For example: “OffshoreWindTurbine Height 70 WindSpeedAverage 8 CorrosionFactor 0.2”
+ ○ Where AnnualEnergyOutput = Height × WindSpeedAverage × 160 × (1 - CorrosionFactor)
+And ResourceDepletionRate = 1200 / (Height * WindSpeedAverage * (1 - CorrosionFactor))

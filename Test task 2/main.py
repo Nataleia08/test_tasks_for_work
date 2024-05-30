@@ -14,10 +14,11 @@ def main():
                 case "WindTurbine": new_energy_source = WindTurbine()
                 case "HydroPlant": new_energy_source = HydroPlant()
             energy_output = new_energy_source.AnnualEnergyOutput(parameters)
+            res_dep_rate = new_energy_source.ResourceDepletionRate(parameters)
             if energy_output == 1:
                 print("This is not energy source")
             else: 
-                print(f"{new_energy_source.type} AnnualEnergyOutput {energy_output}")
+                print(f"{new_energy_source.type} AnnualEnergyOutput {energy_output} ResourceDepletionRate {res_dep_rate}")
         except TypeError as e:
             print(f"This command not right! {e}")
 
